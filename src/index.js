@@ -12,32 +12,32 @@ import './chatGptApi';
 const store = configureStore({ reducer, preloadedState })
 const { dispatch, getState, subscribe } = store;
 const { changeName, changeAge, changeSecond } = bindActionCreators(Actions, dispatch)
-// const name = document.querySelector('.name');
-// const secondName = document.querySelector('.second');
-// const age = document.querySelector('.age');
-// const enter = document.querySelector('.input');
-// const nameContainer = document.querySelector('.name-container');
-// const secondContainer = document.querySelector('.secondName-container');
-// const ageContainer = document.querySelector('.age-container');
+const name = document.querySelector('.name');
+const secondName = document.querySelector('.second');
+const age = document.querySelector('.age');
+const enter = document.querySelector('.input');
+const nameContainer = document.querySelector('.name-container');
+const secondContainer = document.querySelector('.secondName-container');
+const ageContainer = document.querySelector('.age-container');
 
-// name.addEventListener('click', () => {
-//     changeName(enter.value );
-//     const currentData = getState().name
-//     console.log(currentData, getState())
-//     nameContainer.innerHTML = currentData;
-// })
-// secondName.addEventListener('click', () => {
-//     changeSecond( enter.value )
-//     const currentData = getState().secondName
-//     console.log(currentData, store.getState())
-//     secondContainer.innerHTML = currentData;
-// })
-// age.addEventListener('click', () => {
-//     changeAge(enter.value);
-//     const currentData = getState().age
-//     console.log(currentData, store.getState())
-//     ageContainer.innerHTML = currentData;
-// })
+name.addEventListener('click', () => {
+    changeName(enter.value );
+    const currentData = getState().name
+    console.log(currentData, getState())
+    nameContainer.innerHTML = currentData;
+})
+secondName.addEventListener('click', () => {
+    changeSecond( enter.value )
+    const currentData = getState().secondName
+    console.log(currentData, store.getState())
+    secondContainer.innerHTML = currentData;
+})
+age.addEventListener('click', () => {
+    changeAge(enter.value);
+    const currentData = getState().age
+    console.log(currentData, store.getState())
+    ageContainer.innerHTML = currentData;
+})
 
 // subscribe() функция которая добавляет обработчик к объекту Store и он будет запускаться когда dispatch будет менять состояние об
 //объекта store "state". subscribe будет подписывать каждый раз добавляемый обработчик не заменяя предыдущий.Поэтому количество запускаем

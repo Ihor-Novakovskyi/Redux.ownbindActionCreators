@@ -5,14 +5,12 @@ const apiUrl = "https://api.openai.com/v1/engines/curie-instruct-beta/completion
 const requestButton = document.querySelector('.chat-request');
 const textArea = document.querySelector('.request-info');
 const enteringValue = document.querySelector('.text')
-console.log(document.querySelector('.text'))
 requestButton.addEventListener('click', () => { 
-     console.log('some data',enteringValue.value.length ? enteringValue.value : null)
      const data = enteringValue.value.length ? enteringValue.value : null;
      if (data) { 
          request(data).then(gptData => textArea.innerHTML = gptData);
-         textArea.innerHTML = '<span>loading............</span>';
-         return 
+         textArea.innerHTML = 'loading............';
+         return;
     };
 
      textArea.innerHTML = 'please fill the field'
@@ -36,15 +34,11 @@ async function request(ask) {
             body: body
         });
         if (response.ok !== true) { 
-            console.log('error')
             throw new Error(`we have some proble ${response.status}`);
         }
         const data = await response.json();
-        console.log(data)
-        console.log(data.choices[0].text)
         return data.choices[0].text;
     } catch (error) {
-        console.log('error name', error.name)
         return error.name
     }
 }
